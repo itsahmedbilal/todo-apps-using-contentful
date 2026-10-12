@@ -1,0 +1,83 @@
+{
+  "Buttons": [
+    "button.addTodo",
+    "button.save",
+    "button.cancel",
+    "button.edit",
+    "button.delete",
+    "button.markComplete",
+    "button.markIncomplete",
+    "button.retry",
+    "button.clearCompleted",
+    "button.confirm",
+    "button.clearSearch"
+  ],
+  "Forms": [
+    "form.title.label",
+    "form.title.placeholder",
+    "form.description.label",
+    "form.description.placeholder",
+    "form.dueDate.label",
+    "form.dueDate.hint",
+    "form.category.label",
+    "form.category.none",
+    "form.priority.label",
+    "form.addTitle",
+    "form.editTitle"
+  ],
+  "Validation": [
+    "validation.title.required",
+    "validation.title.tooLong",
+    "validation.description.tooLong",
+    "validation.dueDate.invalid"
+  ],
+  "Messages": [
+    "message.itemSaved",
+    "message.itemDeleted",
+    "message.completedCleared",
+    "message.deleteConfirm",
+    "message.clearCompletedConfirm",
+    "dialog.delete.heading",
+    "dialog.clearCompleted.heading",
+    "message.error.generic",
+    "message.error.load",
+    "message.noResults",
+    "message.contentUnavailable"
+  ],
+  "Filters": [
+    "filter.status.label",
+    "filter.status.all",
+    "filter.status.active",
+    "filter.status.completed",
+    "filter.category.label",
+    "filter.category.all",
+    "filter.priority.label",
+    "filter.priority.all",
+    "sort.label",
+    "sort.dueDate",
+    "sort.priority",
+    "sort.createdAt",
+    "search.label",
+    "search.placeholder"
+  ],
+  "Status": [
+    "status.itemsRemaining.one",
+    "status.itemsRemaining.other",
+    "status.overdue",
+    "status.loading",
+    "status.uncategorized",
+    "status.completed",
+    "list.region.label"
+  ],
+  "Navigation": [
+    "nav.home",
+    "nav.help",
+    "nav.main.label",
+    "nav.skipToContent",
+    "language.name.en",
+    "language.name.fr",
+    "notFound.heading",
+    "notFound.message",
+    "notFound.backHome"
+  ]
+}

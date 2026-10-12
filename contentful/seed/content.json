@@ -1,0 +1,157 @@
+{
+  "appSettings": [
+    {
+      "id": "appSettings",
+      "localized": {
+        "appTitle": { "en-CA": "Todo App", "fr-CA": "Application de tâches" },
+        "tagline": { "en-CA": "Stay on top of your tasks", "fr-CA": "Gardez le cap sur vos tâches" },
+        "footerText": { "en-CA": "© 2026 Todo App", "fr-CA": "© 2026 Application de tâches" },
+        "languageSwitcherLabel": { "en-CA": "Language", "fr-CA": "Langue" }
+      },
+      "shared": {}
+    }
+  ],
+  "categories": [
+    {
+      "id": "category-personal",
+      "localized": { "name": { "en-CA": "Personal", "fr-CA": "Personnel" } },
+      "shared": { "slug": "personal", "colour": "#1d6fa5", "icon": "person", "sortOrder": 1 }
+    },
+    {
+      "id": "category-work",
+      "localized": { "name": { "en-CA": "Work", "fr-CA": "Travail" } },
+      "shared": { "slug": "work", "colour": "#6b4c9a", "icon": "briefcase", "sortOrder": 2 }
+    },
+    {
+      "id": "category-shopping",
+      "localized": { "name": { "en-CA": "Shopping", "fr-CA": "Achats" } },
+      "shared": { "slug": "shopping", "colour": "#b45f06", "icon": "cart", "sortOrder": 3 }
+    },
+    {
+      "id": "category-health",
+      "localized": { "name": { "en-CA": "Health", "fr-CA": "Santé" } },
+      "shared": { "slug": "health", "colour": "#2e7d32", "icon": "heart", "sortOrder": 4 }
+    }
+  ],
+  "priorities": [
+    {
+      "id": "priority-low",
+      "localized": { "label": { "en-CA": "Low", "fr-CA": "Faible" } },
+      "shared": { "slug": "low", "level": 1, "colour": "#546e7a" }
+    },
+    {
+      "id": "priority-medium",
+      "localized": { "label": { "en-CA": "Medium", "fr-CA": "Moyenne" } },
+      "shared": { "slug": "medium", "level": 2, "colour": "#b26a00" }
+    },
+    {
+      "id": "priority-high",
+      "localized": { "label": { "en-CA": "High", "fr-CA": "Élevée" } },
+      "shared": { "slug": "high", "level": 3, "colour": "#b3261e" }
+    }
+  ],
+  "emptyStates": [
+    {
+      "id": "emptyState-home",
+      "localized": {
+        "heading": { "en-CA": "Nothing to do!", "fr-CA": "Rien à faire!" },
+        "message": {
+          "en-CA": "You have no tasks yet. Add your first task to get started.",
+          "fr-CA": "Vous n’avez aucune tâche pour le moment. Ajoutez votre première tâche pour commencer."
+        },
+        "callToActionLabel": { "en-CA": "Add a task", "fr-CA": "Ajouter une tâche" }
+      },
+      "shared": {}
+    }
+  ],
+  "pages": [
+    {
+      "id": "page-home",
+      "localized": {
+        "title": { "en-CA": "My tasks", "fr-CA": "Mes tâches" },
+        "intro": {
+          "en-CA": ["Add, organise and complete your tasks in English or French."],
+          "fr-CA": ["Ajoutez, organisez et terminez vos tâches en anglais ou en français."]
+        },
+        "seoTitle": { "en-CA": "My tasks | Todo App", "fr-CA": "Mes tâches | Application de tâches" },
+        "seoDescription": {
+          "en-CA": "A simple bilingual app to add, organise and complete your tasks.",
+          "fr-CA": "Une application bilingue simple pour ajouter, organiser et terminer vos tâches."
+        }
+      },
+      "shared": { "slug": "home", "emptyState": "emptyState-home" }
+    },
+    {
+      "id": "page-help",
+      "localized": {
+        "title": { "en-CA": "Help", "fr-CA": "Aide" },
+        "intro": {
+          "en-CA": ["Answers to common questions about using the app."],
+          "fr-CA": ["Réponses aux questions courantes sur l’utilisation de l’application."]
+        },
+        "seoTitle": { "en-CA": "Help | Todo App", "fr-CA": "Aide | Application de tâches" },
+        "seoDescription": {
+          "en-CA": "Frequently asked questions about the Todo App.",
+          "fr-CA": "Questions fréquentes sur l’Application de tâches."
+        }
+      },
+      "shared": { "slug": "help" }
+    }
+  ],
+  "faqItems": [
+    {
+      "id": "faqItem-1",
+      "localized": {
+        "question": {
+          "en-CA": "How do I add a task?",
+          "fr-CA": "Comment ajouter une tâche?"
+        },
+        "answer": {
+          "en-CA": [
+            "Choose Add task, enter a title, and save. The description, category, priority and due date are optional."
+          ],
+          "fr-CA": [
+            "Choisissez Ajouter une tâche, saisissez un titre, puis enregistrez. La description, la catégorie, la priorité et la date d’échéance sont facultatives."
+          ]
+        }
+      },
+      "shared": { "sortOrder": 1 }
+    },
+    {
+      "id": "faqItem-2",
+      "localized": {
+        "question": {
+          "en-CA": "How do I switch between English and French?",
+          "fr-CA": "Comment passer de l’anglais au français?"
+        },
+        "answer": {
+          "en-CA": [
+            "Use the language switcher in the header. The app remembers your choice for your next visit. The tasks you wrote are never translated."
+          ],
+          "fr-CA": [
+            "Utilisez le sélecteur de langue dans l’en-tête. L’application mémorise votre choix pour votre prochaine visite. Les tâches que vous avez rédigées ne sont jamais traduites."
+          ]
+        }
+      },
+      "shared": { "sortOrder": 2 }
+    },
+    {
+      "id": "faqItem-3",
+      "localized": {
+        "question": {
+          "en-CA": "What happens to my tasks when the app restarts?",
+          "fr-CA": "Que deviennent mes tâches lorsque l’application redémarre?"
+        },
+        "answer": {
+          "en-CA": [
+            "This is a learning project, so your tasks may reset to the sample tasks when the app restarts."
+          ],
+          "fr-CA": [
+            "Il s’agit d’un projet d’apprentissage : vos tâches peuvent revenir aux tâches d’exemple lorsque l’application redémarre."
+          ]
+        }
+      },
+      "shared": { "sortOrder": 3 }
+    }
+  ]
+}

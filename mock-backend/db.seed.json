@@ -1,0 +1,70 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Buy groceries",
+      "description": "Milk, eggs, bread and fruit",
+      "completed": false,
+      "categorySlug": "shopping",
+      "prioritySlug": "medium",
+      "dueDate": "2026-10-20",
+      "createdAt": "2026-10-01T09:00:00.000Z",
+      "updatedAt": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Finish the quarterly report",
+      "description": "Send the draft to the team for review",
+      "completed": false,
+      "categorySlug": "work",
+      "prioritySlug": "high",
+      "dueDate": "2026-10-15",
+      "createdAt": "2026-10-02T10:30:00.000Z",
+      "updatedAt": "2026-10-02T10:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Book a dentist appointment",
+      "description": "",
+      "completed": false,
+      "categorySlug": "health",
+      "prioritySlug": "medium",
+      "dueDate": "2026-01-15",
+      "createdAt": "2026-01-05T08:15:00.000Z",
+      "updatedAt": "2026-01-05T08:15:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "Call mom",
+      "description": "",
+      "completed": false,
+      "categorySlug": "personal",
+      "prioritySlug": "low",
+      "dueDate": null,
+      "createdAt": "2026-10-03T18:00:00.000Z",
+      "updatedAt": "2026-10-03T18:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Renew gym membership",
+      "description": "Ask about the annual rate",
+      "completed": true,
+      "categorySlug": "health",
+      "prioritySlug": "low",
+      "dueDate": "2026-09-30",
+      "createdAt": "2026-09-20T12:00:00.000Z",
+      "updatedAt": "2026-09-29T17:45:00.000Z"
+    },
+    {
+      "id": 6,
+      "title": "Plan the weekend trip",
+      "description": "Pick a destination and book a place to stay",
+      "completed": false,
+      "categorySlug": "personal",
+      "prioritySlug": "medium",
+      "dueDate": "2026-11-05",
+      "createdAt": "2026-10-04T14:20:00.000Z",
+      "updatedAt": "2026-10-04T14:20:00.000Z"
+    }
+  ]
+}

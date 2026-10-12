@@ -1,0 +1,28 @@
+﻿# Dependencies
+node_modules/
+
+# Build output and reports
+dist/
+playwright-report/
+test-results/
+coverage/
+
+# Local environment and secrets (never commit tokens)
+frontend/src/environments/environment.local.ts
+.env
+.env.*
+
+# Mock backend runtime data (created from db.seed.json on first start, kept across restarts)
+mock-backend/db.runtime.json
+
+# Agent folder may hold credentials or auth tokens
+.claude/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+*.log

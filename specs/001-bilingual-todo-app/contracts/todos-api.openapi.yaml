@@ -1,0 +1,168 @@
+openapi: 3.0.3
+info:
+  title: Todo API (mock backend contract)
+  version: 1.0.0
+  description: >
+    Contract between the Angular app and any todo backend. The json-server mock implements it today;
+    a real API can replace it by changing only the base URL. The backend stores slugs and never
+    translated text, and returns machine-readable error codes, not user-facing messages.
+servers:
+  - url: http://localhost:3000
+paths:
+  /todos:
+    get:
+      summary: List todos
+      description: >
+        The app requests the full list and filters/sorts on the client. The optional parameters below are
+        supported by the mock for convenience and are not required of a replacement API.
+      parameters:
+        - { name: completed, in: query, schema: { type: boolean } }
+        - { name: categorySlug, in: query, schema: { type: string } }
+        - { name: prioritySlug, in: query, schema: { type: string } }
+        - { name: title_like, in: query, description: Case-insensitive title match, schema: { type: string } }
+        - { name: _sort, in: query, schema: { type: string, enum: [dueDate, createdAt] } }
+        - { name: _order, in: query, schema: { type: string, enum: [asc, desc] } }
+      responses:
+        '200':
+          description: List of todos
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/Todo' } }
+        '500': { $ref: '#/components/responses/ServerError' }
+    post:
+      summary: Create a todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TodoInput' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Todo' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '500': { $ref: '#/components/responses/ServerError' }
+  /todos/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get:
+      summary: Get one todo
+      responses:
+        '200':
+          description: The todo
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Todo' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '500': { $ref: '#/components/responses/ServerError' }
+    put:
+      summary: Replace a todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TodoInput' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Todo' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '500': { $ref: '#/components/responses/ServerError' }
+    patch:
+      summary: Update some fields of a todo (for example toggle completed)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TodoPatch' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Todo' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '500': { $ref: '#/components/responses/ServerError' }
+    delete:
+      summary: Delete a todo
+      responses:
+        '204': { description: Deleted }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '500': { $ref: '#/components/responses/ServerError' }
+components:
+  schemas:
+    Todo:
+      type: object
+      required: [id, title, completed, prioritySlug, createdAt, updatedAt]
+      properties:
+        id: { oneOf: [{ type: string }, { type: integer }] }
+        title: { type: string, minLength: 1, maxLength: 120 }
+        description: { type: string, maxLength: 500 }
+        completed: { type: boolean, default: false }
+        categorySlug: { type: string, nullable: true }
+        prioritySlug: { type: string, default: medium }
+        dueDate: { type: string, format: date, nullable: true }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    TodoInput:
+      type: object
+      required: [title]
+      properties:
+        title: { type: string, minLength: 1, maxLength: 120 }
+        description: { type: string, maxLength: 500 }
+        completed: { type: boolean }
+        categorySlug: { type: string, nullable: true }
+        prioritySlug: { type: string }
+        dueDate: { type: string, format: date, nullable: true }
+    TodoPatch:
+      type: object
+      minProperties: 1
+      properties:
+        title: { type: string, minLength: 1, maxLength: 120 }
+        description: { type: string, maxLength: 500 }
+        completed: { type: boolean }
+        categorySlug: { type: string, nullable: true }
+        prioritySlug: { type: string }
+        dueDate: { type: string, format: date, nullable: true }
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error: { type: string, enum: [validation_failed, not_found, server_error] }
+        fields:
+          type: array
+          items:
+            type: object
+            required: [field, code]
+            properties:
+              field: { type: string, enum: [title, description, completed, categorySlug, prioritySlug, dueDate] }
+              code: { type: string, enum: [required, tooLong, invalid] }
+  responses:
+    ValidationError:
+      description: Request body failed validation
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    NotFound:
+      description: Todo not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    ServerError:
+      description: Unexpected failure (also used by the mock failure simulation)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+x-mock-controls:
+  description: Mock-only controls, not part of the contract a real API must implement.
+  environment:
+    MOCK_DELAY_MS: Artificial delay added to every response (default 0).
+    MOCK_FAIL_RATE: Fraction 0-1 of requests that fail with 500 (default 0).
+  request-header:
+    X-Mock-Fail: A status code (for example 500) that makes this single request fail with that status.

@@ -1,0 +1,58 @@
+// Design tokens. Every text/background and UI-component pair below was checked against
+// WCAG 2.1 AA (text >= 4.5:1, UI parts and focus ring >= 3:1) in light and dark.
+// Category and priority colours come from Contentful, so components must always show a text label
+// and compute a readable text colour for them; do not rely on colour alone.
+:root {
+  color-scheme: light dark;
+
+  // Surfaces and text
+  --color-bg: #ffffff;
+  --color-surface: #f3f5f8;
+  --color-text: #1a1d21;
+  --color-text-muted: #454b54;
+  --color-border: #6b7380;
+
+  // Actions and states
+  --color-primary: #0b5cad;
+  --color-on-primary: #ffffff;
+  --color-error: #a8231b;
+  --color-success: #17622b;
+  --color-warning-text: #7a4a00;
+  --color-focus-ring: #0b5cad;
+
+  // Focus
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  // Spacing and shape
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --radius: 0.5rem;
+  --gutter: 1rem; // keeps a 16px side gutter at 360px wide
+  --content-max-width: 60rem;
+
+  // Type
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121417;
+    --color-surface: #1c2026;
+    --color-text: #eef0f3;
+    --color-text-muted: #b9bfc9;
+    --color-border: #8a919d;
+
+    --color-primary: #8ab4f8;
+    --color-on-primary: #0b1f3a;
+    --color-error: #f4a6a1;
+    --color-success: #8fd9a0;
+    --color-warning-text: #f2c46d;
+    --color-focus-ring: #8ab4f8;
+  }
+}
